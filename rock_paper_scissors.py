@@ -2,7 +2,7 @@ import random
 OPTIONS = ['rock', 'paper', 'scissors']
 user_score = 0
 computer_score = 0
-
+9
 while True:
     user_pick = input('Enter rock/paper/scissors or Q to quit. \n').lower()
 
@@ -28,7 +28,7 @@ while True:
         print('You won!!!')
         user_score += 1
     else:
-        print('Computer win!!!')
+        print('Computer won!!!')
         computer_score += 1
 
 print('User vs. Computer')
