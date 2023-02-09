@@ -99,14 +99,15 @@ def check_winnings(slot, no_of_lines, value, bet):
             win = value[base_symbol] * bet
     return win
 
-def main():
-    balance = deposit()
+def spin(balance):
     lines = get_no_of_lines()
     while True:
         bet = get_bet()
         total_bet = bet * lines
+        bet_per_line = balance/lines
         if total_bet > balance:
-            print(f'You do not have enough balance for the bet. Your balance is Nu. {balance}.')
+            print(f'You do not have enough balance for the bet. Your balance is Nu. {balance}. \n')
+            print(f'Bet less than Nu. {bet_per_line} per line. \n')
         else:
             break
 
@@ -114,5 +115,21 @@ def main():
     print_slot(slot)
     tot_wins = check_winnings(slot, lines, symbol_value, bet)
     print(f'You have won Nu. {tot_wins}')
+
+    return (tot_wins - total_bet)
+
+def main():
+    balance = deposit()
+    while True:
+        print(f'Your current balance is Nu. {balance} \n')
+        if balance < 1:
+            print('You are bankrupt... Goodbye... ')
+            break
+
+        answer = input('Press Enter to play or Q to quit the game. ').lower()
+        if answer == 'q':
+            break
+        balance += spin(balance)
+    print(f'You are left with Nu. {balance} \n')
 
 main()
