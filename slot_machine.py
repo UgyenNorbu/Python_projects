@@ -35,6 +35,7 @@ def deposit():
     return amount
 
 def get_no_of_lines():
+    # Get number of lines to bet on
     while True:
         lines = input('Enter the number of lines you want to bet on (1-' + str(MAX_LINES) + (') '))
         if lines.isdigit():
@@ -67,6 +68,7 @@ def get_slot_machine_spin(rows, cols, symbols):
         for _ in range(val):
             all_symbols.append(key)
     
+    # Create a 2D array of # where each item should be replace with 'symbol' randomly generated.
     slot = [['#' for x in range(ROW)] for x in range(COL)]
 
     for i in range(ROW):
