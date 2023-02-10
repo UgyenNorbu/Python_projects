@@ -131,6 +131,8 @@ def main():
         answer = input('Press Enter to play or Q to quit the game. ').lower()
         if answer == 'q':
             break
+
+        # If the user did not choose to quit the game, the control is handed over to spin function
         balance += spin(balance)
     print(f'You are left with Nu. {balance} \n')
 
